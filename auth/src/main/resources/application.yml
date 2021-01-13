@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8083
   servlet:
-    context-path: /pagamento
+    context-path: /auth
     
 spring:
   application:
-    name: pagamento
+    name: auth
   jpa:
     show-sql: false
     hibernate:
@@ -16,25 +16,15 @@ spring:
   jmx:
     enabled: false
   datasource:
-    url: jdbc:postgresql://localhost:5432/pagamento
+    url: jdbc:postgresql://localhost:5432/auth
     username: postgres
     password: admin
-  
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: admin
-     
-crud:
-  rabbitmq:
-    exchange: crud.exchange
-    queue: crud.produto.queue
-    
+
 security:
   jwt:
     token:
       secret-key: chave_microservices
+      expire-length: 360000  
 
 eureka:
   instance:
